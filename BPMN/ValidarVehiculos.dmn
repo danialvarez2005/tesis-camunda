@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_009bq8t" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="validar-vehiculos" name="Validar vehiculos">
+    <extensionElements>
+      <biodi:bounds x="269" y="113" width="180" height="80" />
+      <biodi:edge source="InputData_1lmjjwy">
+        <biodi:waypoints x="197" y="298" />
+        <biodi:waypoints x="299" y="193" />
+      </biodi:edge>
+      <biodi:edge source="InputData_03feud0">
+        <biodi:waypoints x="343" y="305" />
+        <biodi:waypoints x="361" y="193" />
+      </biodi:edge>
+      <biodi:edge source="InputData_05w7j42">
+        <biodi:waypoints x="488" y="299" />
+        <biodi:waypoints x="381" y="193" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_1lmjjwy" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_03feud0" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_05w7j42" />
+    </informationRequirement>
+    <decisionTable id="decisionTable_1" hitPolicy="ANY">
+      <input id="input_1" label="Vehiculo 1" camunda:inputVariable="vehiculo1">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>vehiculo1</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1w4ut7q" label="Vehiculo 2" camunda:inputVariable="vehiculo2">
+        <inputExpression id="LiteralExpression_0084ck5" typeRef="string">
+          <text>vehiculo2</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1b9o601" label="Vehiculo 3" camunda:inputVariable="vehiculo3">
+        <inputExpression id="LiteralExpression_14wkfv2" typeRef="string">
+          <text>vehiculo3</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Resultado" name="resultado" typeRef="string" />
+      <rule id="DecisionRule_0zf7oxm">
+        <inputEntry id="UnaryTests_0v8vv0j">
+          <text>"Porsche"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v26rmj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ng59li">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12a40ux">
+          <text>"Rechazado"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04tkwme">
+        <inputEntry id="UnaryTests_1xqdcr8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0u5ro8g">
+          <text>"Porsche"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18mmokg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15m9byq">
+          <text>"Rechazado"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gmgctz">
+        <inputEntry id="UnaryTests_1mtd7nb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_138mmzu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a5umyf">
+          <text>"Porsche"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04f5egh">
+          <text>"Rechazado"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1lmjjwy" name="vehiculo1">
+    <extensionElements>
+      <biodi:bounds x="112" y="298" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_03feud0" name="vehiculo2">
+    <extensionElements>
+      <biodi:bounds x="276" y="305" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_05w7j42" name="vehiculo3">
+    <extensionElements>
+      <biodi:bounds x="448" y="299" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+</definitions>

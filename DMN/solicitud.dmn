@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Solicitud de prestamo" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_13nychf" name="Validar solicitud">
+    <extensionElements>
+      <biodi:bounds x="280" y="145" width="180" height="80" />
+      <biodi:edge source="InputData_1jxrwtn">
+        <biodi:waypoints x="220" y="334" />
+        <biodi:waypoints x="318" y="225" />
+      </biodi:edge>
+      <biodi:edge source="InputData_1cg81s9">
+        <biodi:waypoints x="371" y="334" />
+        <biodi:waypoints x="369" y="225" />
+      </biodi:edge>
+      <biodi:edge source="InputData_1s6n2hb">
+        <biodi:waypoints x="536" y="337" />
+        <biodi:waypoints x="433" y="225" />
+      </biodi:edge>
+    </extensionElements>
+    <informationRequirement>
+      <requiredInput href="#InputData_1jxrwtn" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_1cg81s9" />
+    </informationRequirement>
+    <informationRequirement>
+      <requiredInput href="#InputData_1s6n2hb" />
+    </informationRequirement>
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Edad de cliente" camunda:inputVariable="edadCliente">
+        <inputExpression id="inputExpression_1" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0g0yvc5" label="Ingresos" camunda:inputVariable="ingresos">
+        <inputExpression id="LiteralExpression_1uvfvem" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0u4p7se" label="Tiempo de laborar" camunda:inputVariable="tiempoLaborar">
+        <inputExpression id="LiteralExpression_0r21atp" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="aprobado" name="aprobado" typeRef="string" />
+      <rule id="DecisionRule_1qjv9gk">
+        <inputEntry id="UnaryTests_04amcut">
+          <text>&lt; 18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n1a7lg">
+          <text>&lt; 2500.00</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05iica0">
+          <text>&lt; 365</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rpb1eg">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0v61elp">
+        <inputEntry id="UnaryTests_1bi4dwt">
+          <text>&gt; 70</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jvuxfw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08lk35c">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0opnhpf">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1jxrwtn" name="edadCliente">
+    <extensionElements>
+      <biodi:bounds x="136" y="334" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_1cg81s9" name="ingresos">
+    <extensionElements>
+      <biodi:bounds x="308" y="334" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+  <inputData id="InputData_1s6n2hb" name="tiempoLaborar">
+    <extensionElements>
+      <biodi:bounds x="494" y="337" width="125" height="45" />
+    </extensionElements>
+  </inputData>
+</definitions>

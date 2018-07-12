@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_08x2tsw" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.14.0">
+  <bpmn:process id="JS" isExecutable="true">
+    <bpmn:extensionElements>
+      <camunda:properties>
+        <camunda:property name="marcas" value="[&#34;Isuzu&#34;]" />
+      </camunda:properties>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="StartEvent_1396sft">
+      <bpmn:outgoing>SequenceFlow_0r0u0jy</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="EndEvent_05zi3nd">
+      <bpmn:incoming>SequenceFlow_0axysvp</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:scriptTask id="ScriptTask_1ir2qxr" name="Obtener marcas de vehiculos" scriptFormat="Javascript">
+      <bpmn:incoming>SequenceFlow_0r0u0jy</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0axysvp</bpmn:outgoing>
+      <bpmn:script>marcas = execution.getVariable("marcas");
+listaMarcas = marcas.split(',')
+var system = java.lang.System;
+
+var i=0;
+for(i=0;i&lt;listaMarcas.length;i++)
+{
+  system.out.println(listaMarcas[i]);
+}</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0r0u0jy" sourceRef="StartEvent_1396sft" targetRef="ScriptTask_1ir2qxr" />
+    <bpmn:sequenceFlow id="SequenceFlow_0axysvp" sourceRef="ScriptTask_1ir2qxr" targetRef="EndEvent_05zi3nd" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="JS">
+      <bpmndi:BPMNShape id="StartEvent_1396sft_di" bpmnElement="StartEvent_1396sft">
+        <dc:Bounds x="199" y="26" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="172" y="62" width="0" height="10" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_05zi3nd_di" bpmnElement="EndEvent_05zi3nd">
+        <dc:Bounds x="504" y="26" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="477" y="67" width="0" height="10" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ScriptTask_1ir2qxr_di" bpmnElement="ScriptTask_1ir2qxr">
+        <dc:Bounds x="319" y="4" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0r0u0jy_di" bpmnElement="SequenceFlow_0r0u0jy">
+        <di:waypoint x="235" y="44" />
+        <di:waypoint x="319" y="44" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="232" y="24" width="0" height="10" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0axysvp_di" bpmnElement="SequenceFlow_0axysvp">
+        <di:waypoint x="419" y="44" />
+        <di:waypoint x="504" y="44" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="416.5" y="24" width="0" height="10" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
